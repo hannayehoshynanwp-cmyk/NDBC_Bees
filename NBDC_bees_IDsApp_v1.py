@@ -1,16 +1,10 @@
 import streamlit as st
-
 from PIL import Image
-
 import numpy as np
 import pandas as pd
-
 import tensorflow as tf
-
 import joblib
-
-from tensorflow.keras.preprocessing import image
-
+import keras
 import plotly.express as px
 
 
@@ -19,8 +13,10 @@ def main():
   #Img preprocessing
   def preprocess_img(beeImgFile, IMG_SIZE=416):
     st.info('Preprocessing...')
-    rawImg=image.load_img(beeImgFile, target_size=(IMG_SIZE,IMG_SIZE))
-    imgArr=image.img_to_array(rawImg)
+    rawImg = keras.utils.load_img(beeImgFile, target_size=(IMG_SIZE,IMG_SIZE))
+    imgArr = keras.utils.array_to_img(rawImg)
+    #rawImg=image.load_img(beeImgFile, target_size=(IMG_SIZE,IMG_SIZE))
+    #imgArr=image.img_to_array(rawImg)
     imgArrExp = np.expand_dims(imgArr, 0)
     beeImg=tf.keras.applications.mobilenet_v3.preprocess_input(imgArrExp)
     return beeImg
@@ -65,6 +61,7 @@ def main():
 if __name__ == '__main__':
 
     main()
+
 
 
 
