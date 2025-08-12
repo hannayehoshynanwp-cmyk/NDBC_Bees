@@ -1,5 +1,6 @@
 import streamlit as st
 from PIL import Image
+import requests
 import numpy as np
 import pandas as pd
 import tensorflow as tf
@@ -35,7 +36,7 @@ def main():
     pred_df=pd.DataFrame()
     pred_df['Species']=species
     pred_df['Pred']=specPreds
-    fig = px.bar(pred_df, x="Pred", y="Species", orientation='h',height=800, width=1000, title='NDBC Bees Identification')
+    fig = px.bar(pred_df, x="Pred", y="Species", orientation='h',height=800, width=1000, title='NDBC Bees Identification', labels=dict(Pred="Probabilities for Species (%)"))
     st.plotly_chart(fig)
     
   # Set up your web app
@@ -44,6 +45,8 @@ def main():
 
   # Upload image file
   uploaded_file = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
+  url = st.text_input("Or enter Image URL:")
+  
 
   if uploaded_file is not None:
     # Display the uploaded image
@@ -69,6 +72,28 @@ def main():
           st.error(f"Error in prediction: {e}")
 
   
+  elif url:
+    try:
+        response = requests.get(url)
+        response.raise_for_status()
+        
+        content_type = response.headers.get('Content-Type', '')
+        if 'image' in content_type:
+          # Display the uploaded image
+          with st.spinner(text='Image loading... Please wait'):
+            image = Image.open(BytesIO(response.content))
+            st.image(image, caption='Uploaded Image')
+            st.success("Image uploaded successfully!")
+            
+        else:
+            st.error("The URL does not point to a valid image. Content-Type received was " + content_type)
+            
+    except requests.RequestException as e:
+        st.error(f"Failed to fetch image due to request exception: {str(e)}")
+        
+    except requests.HTTPError as e:
+        st.error(f"HTTP Error occurred: {str(e)}")
+    
   else:
     st.info("Please upload an image file.")
     
@@ -78,6 +103,7 @@ def main():
 if __name__ == '__main__':
 
     main()
+
 
 
 
