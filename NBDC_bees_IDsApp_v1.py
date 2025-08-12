@@ -6,7 +6,7 @@ import pandas as pd
 
 import tensorflow as tf
 
-from PIL import Image, ImageDraw
+from PIL import Image
 
 from tensorflow.keras.preprocessing import image
 
@@ -27,10 +27,13 @@ def main():
         try:
           uploaded_file = st.file_uploader("Choose an image...", type=['jpg', 'png', 'jpeg'])
           if uploaded_file is not None:
-            st.write("Displaying...")
-            image = Image.open("Specimen _3 (1).jpg")
-            image = np.array(image)
-            st.image(image, caption='Uploaded Image of Bee', use_column_width=True)
+            try:
+              st.write("Displaying...")
+              image = Image.open(uploaded_file)
+              st.image(image, caption='Uploaded Image of Bee', use_column_width=True)
+            except Exception as e:
+              st.error(f"Error loading image: {e}")
+              
             
             
             '''beeImgFile=preprocess_img(uploaded_file)
@@ -91,5 +94,6 @@ def main():
 if __name__ == '__main__':
 
     main()
+
 
 
