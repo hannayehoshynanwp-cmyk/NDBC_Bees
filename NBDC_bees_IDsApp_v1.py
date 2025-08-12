@@ -19,11 +19,20 @@ def main():
   # Set up your web app
 
   st.title('NDBC Bees Identification with MobileNetV3')
+
+  if uploaded_file is not None:
+    # Display the uploaded image
+    image = Image.open(uploaded_file)
+    st.image(image, caption='Uploaded Image', use_column_width=True)
+    st.success("Image uploaded successfully!")
+  else:
+    st.info("Please upload an image file.")
+  
   #st.write('Enter the filename to predict its Bee species')
   # User input
   #beeImgFile=st.text_area('', height=200)
   # Button to make a prediction
-  if st.button('Predict'):
+  '''if st.button('Predict'):
         try:
           uploaded_file = st.file_uploader("Choose an image...", type=['jpg', 'png', 'jpeg'])
           if uploaded_file is not None:
@@ -32,7 +41,7 @@ def main():
               image = Image.open(uploaded_file)
               st.image(image, caption='Uploaded Image of Bee', use_column_width=True)
             except Exception as e:
-              st.error(f"Error loading image: {e}")
+              st.error(f"Error loading image: {e}")'''
               
             
             
@@ -94,6 +103,7 @@ def main():
 if __name__ == '__main__':
 
     main()
+
 
 
 
