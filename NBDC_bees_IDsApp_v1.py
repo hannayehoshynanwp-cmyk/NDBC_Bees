@@ -29,6 +29,7 @@ def main():
           if uploaded_file is not None:
             st.write("Displaying...")
             image = Image.open(uploaded_file)
+            image = np.array(image)
             st.image(image, caption='Uploaded Image of Bee', use_column_width=True)
             
             
@@ -90,3 +91,4 @@ def main():
 if __name__ == '__main__':
 
     main()
+
