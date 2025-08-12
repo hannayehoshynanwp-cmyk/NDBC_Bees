@@ -29,7 +29,7 @@ def main():
     species=[]
     specPreds=[]    
     for index, pred in enumerate(preds.flatten()):
-      st.write(f'{labels[index]}: {pred:.2f}%')
+      #st.write(f'{labels[index]}: {pred:.2f}%')
       species.append(labels[index])
       specPreds.append(pred)
     pred_df=pd.DataFrame()
@@ -78,6 +78,7 @@ def main():
 if __name__ == '__main__':
 
     main()
+
 
 
 
