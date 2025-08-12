@@ -1,1 +1,6 @@
 streamlit
+numpy
+plotly
+pandas
+tensorflow
+
