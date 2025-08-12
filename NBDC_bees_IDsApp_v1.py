@@ -48,6 +48,8 @@ def main():
 
   st.sidebar.markdown("## Guide:")
   st.sidebar.image("nbdc-bees.jpg", caption='NDBC Bees')
+  link='More about Northwestern Polytechnic’s NBDC [link](https://www.nwpolytech.ca/research/national-bee-diagnostic-centre)'
+  st.markdown(link,unsafe_allow_html=True)
   st.sidebar.info("This tool uses MobileNetV3 to identify bee species based on their images. You have an interface to upload images of types jpg, png, or jpeg.")
   st.sidebar.markdown("### You have 2 options to upload the image:")
   st.sidebar.write("1) as a file (from your PC or laptop).")
@@ -130,6 +132,7 @@ def main():
 if __name__ == '__main__':
 
     main()
+
 
 
 
