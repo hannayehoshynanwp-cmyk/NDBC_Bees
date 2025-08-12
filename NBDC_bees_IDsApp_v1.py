@@ -46,15 +46,17 @@ def main():
   st.title('National Bee Diagnostic Centre (NBDC)')
   st.header('NDBC Bees Identification with MobileNetV3')
 
-  st.sidebar.markdown("## Guide:")
   st.sidebar.image("nbdc-bees.jpg", caption='NDBC Bees')
-  link='More about Northwestern Polytechnic’s [NBDC](https://www.nwpolytech.ca/research/national-bee-diagnostic-centre)'
-  st.sidebar.markdown(link,unsafe_allow_html=True)
+  link1='More about Northwestern Polytechnic’s [NBDC](https://www.nwpolytech.ca/research/national-bee-diagnostic-centre)'
+  st.sidebar.markdown(link1,unsafe_allow_html=True)
   st.sidebar.info("This tool uses MobileNetV3 to identify bee species based on their images. You have an interface to upload images of types jpg, png, or jpeg.")
   st.sidebar.markdown("### You have 2 options to upload the image:")
   st.sidebar.write("1) as a file (from your PC or laptop).")
   st.sidebar.write("2) or enter its URL")
-
+  st.sidebar.markdown("## Guide:")
+  link2='How to use this? [Vide Guide](https://youtu.be/yQKpkCMbHxY)'
+  st.sidebar.markdown(link2,unsafe_allow_html=True)
+  
   # Upload image file
   uploaded_file = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
   url = st.text_input("Or enter Image URL:")
@@ -132,6 +134,7 @@ def main():
 if __name__ == '__main__':
 
     main()
+
 
 
 
