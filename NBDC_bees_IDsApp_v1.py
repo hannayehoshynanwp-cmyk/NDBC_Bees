@@ -24,6 +24,19 @@ def main():
   def load_model(model_file):
     model = joblib.load(model_file)
     return model
+
+  def display_predictions(preds, labels):
+    species=[]
+    specPreds=[]    
+    for index, pred in enumerate(preds.flatten()):
+      st.write(f'{labels[index]}: {pred:.2f}%')
+      species.append(labels[index])
+      specPreds.append(pred)
+    pred_df=pd.DataFrame()
+    pred_df['Species']=species
+    pred_df['Pred']=specPreds
+    fig = px.bar(pred_df, x="Pred", y="Species", orientation='h',height=800, width=1000, title='NDBC Bees Identification')
+    st.plotly_chart(fig)
     
   # Set up your web app
 
@@ -34,9 +47,10 @@ def main():
 
   if uploaded_file is not None:
     # Display the uploaded image
-    image = Image.open(uploaded_file)
-    st.image(image, caption='Uploaded Image')
-    st.success("Image uploaded successfully!")
+    with st.spinner(text='Image loading... Please wait'):
+      image = Image.open(uploaded_file)
+      st.image(image, caption='Uploaded Image')
+      st.success("Image uploaded successfully!")
     
     # Button to make a prediction
     if st.button('Predict'):
@@ -49,6 +63,8 @@ def main():
           labels=joblib.load('model1_v3_NDBC_Bees_8_8_25_labels.pkl')
           testImgPreds=model.predict(beeImgFile)
           st.success(f"Top class is: {labels[testImgPreds[0].argmax()]}")
+          display_predictions(testImgPreds,labels)
+          
       except Exception as e:
           st.error(f"Error in prediction: {e}")
 
@@ -62,6 +78,7 @@ def main():
 if __name__ == '__main__':
 
     main()
+
 
 
 
