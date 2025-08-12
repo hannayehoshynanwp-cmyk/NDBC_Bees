@@ -57,7 +57,7 @@ def main():
       st.success("Image uploaded successfully!")
     
     # Button to make a prediction
-    if st.button('Predict'):
+    if st.button('Predict from file'):
       try:
         beeImgFile=preprocess_img(uploaded_file)
         st.write("")
@@ -85,6 +85,21 @@ def main():
             image = Image.open(BytesIO(response.content))
             st.image(image, caption='Uploaded Image')
             st.success("Image uploaded successfully!")
+              # Button to make a prediction
+          if st.button('Predict from URL'):
+            try:
+              beeImgFile=preprocess_img(BytesIO(response.content))
+              st.write("")
+              #st.write("Identification...")
+              with st.spinner(text='Identification in progress... Please wait.'):
+                model = load_model('model1_v3_NDBC_Bees_8_8_25.pkl')
+                labels=joblib.load('model1_v3_NDBC_Bees_8_8_25_labels.pkl')
+                testImgPreds=model.predict(beeImgFile)
+                st.success(f"Top class is: {labels[testImgPreds[0].argmax()]}")
+                display_predictions(testImgPreds,labels)
+                
+      except Exception as e:
+          st.error(f"Error in prediction: {e}")
             
         else:
             st.error("The URL does not point to a valid image. Content-Type received was " + content_type)
@@ -104,6 +119,7 @@ def main():
 if __name__ == '__main__':
 
     main()
+
 
 
 
