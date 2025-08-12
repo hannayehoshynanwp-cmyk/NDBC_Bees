@@ -32,7 +32,7 @@ def main():
             st.image(image, caption='Uploaded Image of Bee', use_column_width=True)
             
             
-            beeImgFile=preprocess_img(uploaded_file)
+            '''beeImgFile=preprocess_img(uploaded_file)
 
             st.write("")
             st.write("Identification...")
@@ -47,7 +47,7 @@ def main():
             # Visualization
             display_predictions(testImgPreds,labels)
           else:
-            st.error(f"An unexpected error occurred :(")
+            st.error(f"An unexpected error occurred :(")'''
 
 
 
@@ -88,4 +88,5 @@ def main():
     return beeImg
 
 if __name__ == '__main__':
+
     main()
