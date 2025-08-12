@@ -3,4 +3,5 @@ numpy
 plotly
 pandas
 tensorflow
+joblib
 
