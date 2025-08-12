@@ -41,6 +41,11 @@ def main():
     st.plotly_chart(fig)
     
   # Set up your web app
+    st.set_page_config(
+     page_title="NDBC Bees Identification",
+     page_icon="🐝",
+     layout="wide",
+     initial_sidebar_state="expanded")
 
   st.title('National Bee Diagnostic Centre (NBDC)')
   st.header('NDBC Bees Identification with MobileNetV3')
@@ -129,6 +134,7 @@ def main():
 if __name__ == '__main__':
 
     main()
+
 
 
 
