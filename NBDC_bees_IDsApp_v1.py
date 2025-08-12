@@ -42,7 +42,15 @@ def main():
     
   # Set up your web app
 
-  st.title('NDBC Bees Identification with MobileNetV3')
+  st.title('National Bee Diagnostic Centre (NBDC)')
+  st.header('NDBC Bees Identification with MobileNetV3')
+
+  st.sidebar.markdown("## Guide:")
+  st.sidebar.image("nbdc-bees.jpg", caption='NDBC Bees')
+  st.sidebar.info("This tool uses MobileNetV3 to identify bee species based on their images. You have an interface to upload images of types jpg, png, or jpeg.")
+  st.sidebar.markdown("### You have 2 options to upload the image:")
+  st.sidebar.write("1) as a file (from your PC or laptop).")
+  st.sidebar.write("2) or enter its URL (for ex. https://static.wixstatic.com/media/6c16cb_6689831c120547dc8a2c9604480c4106.jpg/v1/fill/w_548,h_410,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/6c16cb_6689831c120547dc8a2c9604480c4106.jpg)")
 
   # Upload image file
   uploaded_file = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
@@ -112,6 +120,8 @@ def main():
     
   else:
     st.info("Please upload an image file.")
+
+
     
   
  
@@ -119,6 +129,7 @@ def main():
 if __name__ == '__main__':
 
     main()
+
 
 
 
