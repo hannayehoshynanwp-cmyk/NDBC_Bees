@@ -15,7 +15,7 @@ def main():
   if uploaded_file is not None:
     # Display the uploaded image
     image = Image.open(uploaded_file)
-    st.image(image, caption='Uploaded Image', use_column_width=True)
+    st.image(image, caption='Uploaded Image')
     st.success("Image uploaded successfully!")
   else:
     st.info("Please upload an image file.")
@@ -25,6 +25,7 @@ def main():
 if __name__ == '__main__':
 
     main()
+
 
 
 
