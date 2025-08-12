@@ -20,6 +20,9 @@ def main():
 
   st.title('NDBC Bees Identification with MobileNetV3')
 
+  # Upload image file
+  uploaded_file = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
+
   if uploaded_file is not None:
     # Display the uploaded image
     image = Image.open(uploaded_file)
@@ -103,6 +106,7 @@ def main():
 if __name__ == '__main__':
 
     main()
+
 
 
 
