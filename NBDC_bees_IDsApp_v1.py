@@ -98,8 +98,8 @@ def main():
                 st.success(f"Top class is: {labels[testImgPreds[0].argmax()]}")
                 display_predictions(testImgPreds,labels)
                 
-      except Exception as e:
-          st.error(f"Error in prediction: {e}")
+            except Exception as e:
+                st.error(f"Error in prediction: {e}")
             
         else:
             st.error("The URL does not point to a valid image. Content-Type received was " + content_type)
@@ -119,6 +119,7 @@ def main():
 if __name__ == '__main__':
 
     main()
+
 
 
 
