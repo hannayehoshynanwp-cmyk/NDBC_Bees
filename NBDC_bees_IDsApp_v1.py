@@ -12,7 +12,7 @@ import plotly.express as px
 def main():
   #Img preprocessing
   def preprocess_img(beeImgFile, IMG_SIZE=416):
-    st.info('Preprocessing...')
+    #st.info('Preprocessing...')
     rawImg = keras.utils.load_img(beeImgFile, target_size=(IMG_SIZE,IMG_SIZE))
     imgArr = keras.utils.array_to_img(rawImg)
     #rawImg=image.load_img(beeImgFile, target_size=(IMG_SIZE,IMG_SIZE))
@@ -43,11 +43,12 @@ def main():
       try:
         beeImgFile=preprocess_img(uploaded_file)
         st.write("")
-        st.write("Identification...")
-        model = load_model('model1_v3_NDBC_Bees_8_8_25.pkl')
-        labels=joblib.load('model1_v3_NDBC_Bees_8_8_25_labels.pkl')
-        testImgPreds=model.predict(beeImgFile)
-        st.success(f"Top class is: {labels[testImgPreds[0].argmax()]}")
+        #st.write("Identification...")
+        with st.spinner(text='Identification in progress... Please wait.'):
+          model = load_model('model1_v3_NDBC_Bees_8_8_25.pkl')
+          labels=joblib.load('model1_v3_NDBC_Bees_8_8_25_labels.pkl')
+          testImgPreds=model.predict(beeImgFile)
+          st.success(f"Top class is: {labels[testImgPreds[0].argmax()]}")
       except Exception as e:
           st.error(f"Error in prediction: {e}")
 
@@ -61,6 +62,7 @@ def main():
 if __name__ == '__main__':
 
     main()
+
 
 
 
