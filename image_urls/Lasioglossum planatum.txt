@@ -1,0 +1,10 @@
+https://mczbase.mcz.harvard.edu/specimen_images/entomology/thumbnails/MCZ-ENT00610607_Lasioglossum_planatum_lbs.jpg
+https://quod.lib.umich.edu/cgi/i/image/api/image/insect2ic:UMMZI-93399:UMMZ-INS-93399/full/res:2/0/native.jpg
+https://quod.lib.umich.edu/cgi/i/image/api/image/insect2ic:UMMZI-93417:UMMZ-INS-93417/full/res:2/0/native.jpg
+https://quod.lib.umich.edu/cgi/i/image/api/image/insect2ic:UMMZI-93419:UMMZ-INS-93419/full/res:2/0/native.jpg
+https://quod.lib.umich.edu/cgi/i/image/api/image/insect2ic:UMMZI-93428:UMMZ-INS-93428/full/res:2/0/native.jpg
+https://quod.lib.umich.edu/cgi/i/image/api/image/insect2ic:UMMZI-91926:UMMZ-INS-91926/full/res:2/0/native.jpg
+https://quod.lib.umich.edu/cgi/i/image/api/image/insect2ic:UMMZI-90954:UMMZ-INS-90954/full/res:2/0/native.jpg
+https://quod.lib.umich.edu/cgi/i/image/api/image/insect2ic:UMMZI-95101:UMMZ-INS-95101/full/res:2/0/native.jpg
+https://quod.lib.umich.edu/cgi/i/image/api/image/insect2ic:UMMZI-93545:UMMZ-INS-93545/full/res:2/0/native.jpg
+https://quod.lib.umich.edu/cgi/i/image/api/image/insect2ic:UMMZI-93549:UMMZ-INS-93549/full/res:2/0/native.jpg
