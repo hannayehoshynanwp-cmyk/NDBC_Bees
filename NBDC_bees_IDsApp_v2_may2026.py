@@ -76,8 +76,12 @@ def main():
         st.write("")
         #st.write("Identification...")
         with st.spinner(text='Identification in progress... Please wait.'):
-          model = load_model('model1_v3_NDBC_Bees_8_8_25.pkl')
-          labels=joblib.load('model1_v3_NDBC_Bees_8_8_25_labels.pkl')
+          #model = load_model('model1_v3_NDBC_Bees_8_8_25.pkl')
+          model = load_model('smoteImgBees17genus_classification_v3_model_1FullLarge1270adasynCW_9_5_26_32_416.pkl')
+          #smoteImgBees17genus_classification_v3_model_1FullLarge1270adasynCW_9_5_26_32_416 - 13.5.26
+          #smoteImgBees17genus_classification_v3_LABELS_1FullLarge1270adasynCW_9_5_26_32_416
+          #labels=joblib.load('model1_v3_NDBC_Bees_8_8_25_labels.pkl')
+          labels=joblib.load('smoteImgBees17genus_classification_v3_LABELS_1FullLarge1270adasynCW_9_5_26_32_416.pkl')
           testImgPreds=model.predict(beeImgFile)
           st.success(f"Top class is: {labels[testImgPreds[0].argmax()]}")
           display_predictions(testImgPreds,labels)
