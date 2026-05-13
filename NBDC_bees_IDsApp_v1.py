@@ -28,20 +28,28 @@ def main():
     return model
 
   def display_predictions(preds, labels):
-    species=[]
-    specPreds=[]    
+    #species=[]
+    #specPreds=[]
+    genus=[]
+    genusPreds=[]
     for index, pred in enumerate(preds.flatten()):
       #st.write(f'{labels[index]}: {pred:.2f}%')
-      species.append(labels[index])
-      specPreds.append(pred)
+      #species.append(labels[index])
+      #specPreds.append(pred)
+      genus.append(labels[index])
+      genusPreds.append(round(pred*100,2))
+      
     pred_df=pd.DataFrame()
-    pred_df['Species']=species
-    pred_df['Pred']=specPreds
-    fig = px.bar(pred_df, x="Pred", y="Species", orientation='h',height=800, width=1000, title='NDBC Bees Identification', labels=dict(Pred="Probabilities for Species (%)"))
+    #pred_df['Species']=species
+    #pred_df['Pred']=specPreds
+    pred_df['Genus']=genus # Changed from species to genus
+    pred_df['Pred']=genusPreds # Changed from specPreds to genusPreds
+    
+    fig = px.bar(pred_df, x="Pred", y="Genus", orientation='h',height=500, width=800, title='Bees Identification', labels=dict(Pred="Probabilities for Species (%)"), hover_data=["Pred"])
     st.plotly_chart(fig)
     
   # Set up your web app
-  st.set_page_config(page_title="NDBC Bees Identification",page_icon="🐝", layout="wide", initial_sidebar_state="expanded")
+  st.set_page_config(page_title="NDBC: Bees Identification",page_icon="🐝", layout="wide", initial_sidebar_state="expanded")
 
   st.title('National Bee Diagnostic Centre (NBDC)')
   st.header('NDBC Bees Identification with MobileNetV3')
