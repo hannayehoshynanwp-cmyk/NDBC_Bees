@@ -36,7 +36,7 @@ def main():
       #st.write(f'{labels[index]}: {pred:.2f}%')
       #species.append(labels[index])
       #specPreds.append(pred)
-      st.success(f"Genus {labels[str(index)]} is processed")
+      #st.success(f"Genus {labels[str(index)]} is processed")
       genus.append(labels[str(index)])
       genusPreds.append(round(pred*100,2))
       
