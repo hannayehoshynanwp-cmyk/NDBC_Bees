@@ -1,8 +1,0 @@
-streamlit
-numpy
-plotly
-pandas
-tensorflow
-joblib
-keras
-
