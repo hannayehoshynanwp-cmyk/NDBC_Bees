@@ -36,7 +36,7 @@ def main():
       #st.write(f'{labels[index]}: {pred:.2f}%')
       #species.append(labels[index])
       #specPreds.append(pred)
-      genus.append(labels[index])
+      genus.append(labels[str(index)])
       genusPreds.append(round(pred*100,2))
       
     pred_df=pd.DataFrame()
