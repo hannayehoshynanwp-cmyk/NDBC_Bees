@@ -75,7 +75,7 @@ def main():
     # Display the uploaded image
     with st.spinner(text='Image loading... Please wait'):
       image = Image.open(uploaded_file)
-      st.image(image, caption='Uploaded Image')
+      st.image(image, caption='Uploaded Image', width=200)
       st.success("Image uploaded successfully!")
     
     # Button to make a prediction
@@ -90,7 +90,7 @@ def main():
           #model = load_model('model1_v3_NDBC_Bees_8_8_25.pkl')
           #labels=joblib.load('model1_v3_NDBC_Bees_8_8_25_labels.pkl')
           testImgPreds=model.predict(beeImgFile)
-          st.success(f"Top class is: {labels[str(testImgPreds[0].argmax())]}")
+          #st.success(f"Top class is: {labels[str(testImgPreds[0].argmax())]}")
           display_predictions(testImgPreds,labels)
           
       except Exception as e:
@@ -107,7 +107,7 @@ def main():
           # Display the uploaded image
           with st.spinner(text='Image loading... Please wait'):
             image = Image.open(BytesIO(response.content))
-            st.image(image, caption='Uploaded Image', width=300)
+            st.image(image, caption='Uploaded Image', width=200)
             st.success("Image uploaded successfully!")
               # Button to make a prediction
           if st.button('Predict from URL'):
