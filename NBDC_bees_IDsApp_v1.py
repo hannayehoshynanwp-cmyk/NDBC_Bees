@@ -90,7 +90,7 @@ def main():
           #model = load_model('model1_v3_NDBC_Bees_8_8_25.pkl')
           #labels=joblib.load('model1_v3_NDBC_Bees_8_8_25_labels.pkl')
           testImgPreds=model.predict(beeImgFile)
-          #st.success(f"Top class is: {labels[str(testImgPreds[0].argmax())]}")
+          st.success(f"Top class is: {labels[str(testImgPreds[0].argmax())]}")
           display_predictions(testImgPreds,labels)
           
       except Exception as e:
